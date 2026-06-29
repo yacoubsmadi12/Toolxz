@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "ToolZone"
+version = "1.0.0"
+id = "artifacts/toolzone"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18568
+
+[services.development]
+run = "pnpm --filter @workspace/toolzone run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/toolzone", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/toolzone/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18568"
+BASE_PATH = "/"

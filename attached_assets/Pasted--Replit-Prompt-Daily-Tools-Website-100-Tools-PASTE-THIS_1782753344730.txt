@@ -1,0 +1,364 @@
+# 🚀 Replit Prompt — Daily Tools Website (100+ Tools)
+
+---
+
+## PASTE THIS ENTIRE PROMPT INTO REPLIT AI:
+
+---
+
+Build me a **complete, fully functional multi-page tools website** called **"ToolZone"** — a professional utility hub with 100+ free online tools. Every tool must work 100% client-side (no backend needed). The site must support **Google AdSense ads** for monetization.
+
+---
+
+## 🏗️ TECH STACK
+
+- **HTML5 + CSS3 + Vanilla JavaScript** (no frameworks — pure speed)
+- One `index.html` for homepage
+- Each tool = its own `.html` file in a `/tools/` folder
+- Shared `style.css` and `main.js` in `/assets/`
+- Mobile-first, fully responsive
+- SEO-friendly (meta tags, structured data, sitemap-ready)
+
+---
+
+## 🎨 DESIGN SYSTEM
+
+**Color Palette:**
+- Primary: `#6C63FF` (purple)
+- Secondary: `#FF6584` (pink accent)
+- Background: `#0F0F1A` (dark navy)
+- Surface: `#1A1A2E` (card background)
+- Text: `#E0E0FF` (soft white)
+- Accent: `#00D4AA` (teal highlight)
+
+**Typography:**
+- Display font: `Inter` (700 bold for headings)
+- Body: `Inter` (400 regular)
+- Monospace: `JetBrains Mono` (for code/output fields)
+- Import from Google Fonts
+
+**Components:**
+- Glassmorphism cards with `backdrop-filter: blur(10px)`
+- Smooth hover transitions (0.3s ease)
+- Purple gradient buttons
+- Dark input fields with glowing focus border
+- Category color-coded badges
+- Sticky top navbar with logo + search bar
+- Floating "back to top" button
+
+---
+
+## 📐 LAYOUT STRUCTURE
+
+### Homepage (`index.html`)
+```
+[STICKY NAVBAR] — Logo | Search | Nav Links
+[HERO SECTION] — "100+ Free Online Tools" headline + search bar
+[AD BANNER] — Google AdSense 728x90 leaderboard
+[CATEGORIES ROW] — Horizontal scroll filter chips
+[TOOLS GRID] — 4-column card grid (responsive: 2-col mobile, 3-col tablet)
+[FOOTER] — Links + copyright + dark
+```
+
+### Each Tool Page (`/tools/tool-name.html`)
+```
+[STICKY NAVBAR]
+[BREADCRUMB] — Home > Category > Tool Name
+[TOOL HEADER] — Icon + Title + Description
+[AD BANNER TOP] — AdSense 728x90
+[TOOL INTERFACE] — The actual working tool UI
+[AD BANNER MIDDLE] — AdSense 300x250 sidebar or in-content
+[RELATED TOOLS] — 4 cards of related tools
+[AD BANNER BOTTOM] — AdSense 728x90
+[FOOTER]
+```
+
+---
+
+## 📢 GOOGLE ADSENSE INTEGRATION
+
+Add AdSense placeholder slots in every page. Use this pattern:
+
+```html
+<!-- AdSense Banner — Replace with your Publisher ID -->
+<div class="ad-container ad-leaderboard">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+```
+
+Add the AdSense script in `<head>` of every HTML file:
+```html
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+```
+
+Create 3 ad sizes used throughout:
+- `.ad-leaderboard` — 728x90 (top/bottom of pages)
+- `.ad-rectangle` — 300x250 (sidebar / in-content)
+- `.ad-mobile-banner` — 320x50 (mobile only)
+
+Style ad containers with a subtle `[Advertisement]` label above, gray border, centered.
+
+---
+
+## 🛠️ TOOLS LIST — BUILD ALL OF THESE (each as separate .html file)
+
+### 🔐 Security & Password Tools
+1. **Password Generator** — length slider, toggle: uppercase, lowercase, numbers, symbols, copy button
+2. **Password Strength Checker** — real-time strength meter with color bar
+3. **Hash Generator** — input text → MD5, SHA-1, SHA-256 output
+4. **UUID Generator** — generate v4 UUIDs, bulk generate up to 100
+5. **Random String Generator** — custom charset, length, quantity
+
+### 📱 QR & Barcode Tools
+6. **QR Code Generator** — text/URL input → downloadable QR PNG (use qrcode.js CDN)
+7. **QR Code Reader** — upload image → decode QR (use jsQR CDN)
+8. **Barcode Generator** — Code128, EAN13, UPC (use JsBarcode CDN) → download SVG/PNG
+9. **Barcode Reader** — upload image → decode barcode
+
+### 🖼️ Image Tools
+10. **Image Compressor** — drag & drop, quality slider, download compressed
+11. **Image Resizer** — set width/height, maintain aspect ratio, download
+12. **Image Cropper** — drag crop area, download cropped image
+13. **Image to Base64** — upload → base64 string output
+14. **Base64 to Image** — paste base64 → preview + download
+15. **Image Format Converter** — JPG↔PNG↔WEBP conversion
+16. **Remove Background** — integrate remove.bg API or use client-side approximation with canvas
+17. **Image Color Picker** — upload image, click to pick hex color
+18. **Grayscale Converter** — convert image to grayscale
+19. **Image Flipper/Rotator** — flip horizontal/vertical, rotate 90/180/270
+
+### 📝 Text Tools
+20. **Word Counter** — count words, characters, sentences, paragraphs, reading time
+21. **Character Counter** — live count with limit warning
+22. **Text Case Converter** — UPPER, lower, Title Case, camelCase, snake_case
+23. **Lorem Ipsum Generator** — paragraphs, words, sentences selector
+24. **Text Reverser** — reverse words or characters
+25. **Duplicate Line Remover** — paste text → remove duplicate lines
+26. **Text Sorter** — alphabetical A-Z / Z-A, numerical
+27. **Whitespace Remover** — remove extra spaces, trim lines
+28. **Find & Replace** — simple text find and replace
+29. **Text to Morse Code** — and reverse
+30. **ROT13 Encoder/Decoder**
+31. **Caesar Cipher** — encode/decode with custom shift
+32. **Slug Generator** — text → URL-friendly slug
+33. **Fancy Text Generator** — 𝓯𝓪𝓷𝓬𝔂 unicode text styles
+
+### 🔢 Number & Math Tools
+34. **Age Calculator** — birthdate → exact age in years/months/days
+35. **Percentage Calculator** — X% of Y, X is what % of Y, % change
+36. **BMI Calculator** — metric & imperial, result with health category
+37. **EMI / Loan Calculator** — principal, rate, tenure → monthly EMI + total interest chart
+38. **Tip Calculator** — bill amount, tip %, split between people
+39. **Discount Calculator** — original price + discount % → final price
+40. **Currency Converter** — use exchangerate-api.com free API for live rates
+41. **Number Base Converter** — decimal ↔ binary ↔ hex ↔ octal
+42. **Roman Numeral Converter** — number ↔ Roman numerals
+43. **Prime Number Checker** — is this number prime?
+44. **Factorial Calculator**
+45. **GCD / LCM Calculator**
+46. **Scientific Calculator** — full calculator UI with history
+
+### 📐 Unit Converters
+47. **Length Converter** — mm, cm, m, km, in, ft, yd, mi
+48. **Weight Converter** — mg, g, kg, ton, oz, lb
+49. **Temperature Converter** — Celsius ↔ Fahrenheit ↔ Kelvin
+50. **Area Converter** — cm², m², km², ft², acre, hectare
+51. **Volume Converter** — ml, L, gallon, cup, pint, fl oz
+52. **Speed Converter** — m/s, km/h, mph, knots
+53. **Time Converter** — ms, seconds, minutes, hours, days, weeks, months, years
+54. **Data Storage Converter** — bytes, KB, MB, GB, TB
+55. **Pressure Converter** — Pa, bar, psi, atm
+56. **Energy Converter** — J, kJ, cal, kcal, kWh
+
+### 📅 Date & Time Tools
+57. **Date Difference Calculator** — days between two dates
+58. **Add/Subtract Days** — date + N days = ?
+59. **Unix Timestamp Converter** — timestamp ↔ human date
+60. **Day of Week Finder** — what day was a date?
+61. **Countdown Timer** — set date → live countdown
+62. **Stopwatch** — start/stop/lap/reset
+63. **World Clock** — show multiple timezones simultaneously
+
+### 🌐 Web & Dev Tools
+64. **URL Encoder/Decoder**
+65. **HTML Encoder/Decoder** — `<` ↔ `&lt;`
+66. **JSON Formatter/Validator** — pretty print + syntax error detection
+67. **JSON Minifier**
+68. **JSON to CSV Converter**
+69. **CSV to JSON Converter**
+70. **Color Picker** — hex/RGB/HSL picker with conversion
+71. **Color Palette Generator** — generate harmonious palettes
+72. **Gradient Generator** — CSS gradient builder with live preview + copy code
+73. **Box Shadow Generator** — live CSS box-shadow builder
+74. **Border Radius Generator** — CSS border-radius visual tool
+75. **Meta Tag Generator** — fill form → copy ready HTML meta tags
+76. **Open Graph Tag Generator**
+77. **Robots.txt Generator**
+78. **.htaccess Generator** — redirect rules, password protect
+79. **Button Generator** — visual CSS button builder
+80. **Regex Tester** — pattern + test string → matches highlighted
+
+### 🔢 Encode / Decode
+81. **Base64 Encoder/Decoder** — text ↔ base64
+82. **URL Shortener** — integrate TinyURL API
+83. **Binary to Text** — and reverse
+84. **ASCII Art Generator** — text → ASCII art (using figlet.js CDN)
+
+### 📊 Finance Tools
+85. **Compound Interest Calculator** — with graph
+86. **Simple Interest Calculator**
+87. **Salary Calculator** — annual ↔ monthly ↔ hourly
+88. **VAT / Tax Calculator**
+89. **Retirement Calculator** — basic projection
+
+### 🎲 Fun / Random Tools
+90. **Random Number Generator** — range + quantity
+91. **Coin Flipper** — animated flip
+92. **Dice Roller** — 1–6 sides, multiple dice, animation
+93. **Random Name Picker** — paste list → pick random winner
+94. **Yes or No Generator** — random decision with animation
+95. **Color Name Finder** — enter hex → get color name
+96. **Random Color Generator** — generate + show hex/RGB
+
+### ✅ Productivity Tools
+97. **To-Do List** — add/check/delete tasks, saved in localStorage
+98. **Pomodoro Timer** — 25/5 work-break cycles with sound
+99. **Notes Pad** — textarea with auto-save to localStorage
+100. **Word Frequency Counter** — paste text → table of word frequencies
+101. **Text to Speech** — Web Speech API
+102. **Speech to Text** — Web Speech Recognition API
+
+---
+
+## 🗂️ FILE STRUCTURE
+
+```
+/
+├── index.html
+├── assets/
+│   ├── style.css          ← Global styles
+│   ├── main.js            ← Navbar, search, dark mode
+│   └── tools-data.js      ← Array of all tools (name, desc, url, category, icon)
+├── tools/
+│   ├── qr-code-generator.html
+│   ├── barcode-generator.html
+│   ├── password-generator.html
+│   ├── unit-converter.html
+│   ├── image-compressor.html
+│   ├── image-resizer.html
+│   ├── age-calculator.html
+│   ├── emi-calculator.html
+│   ├── ... (all other tools)
+└── sitemap.xml
+```
+
+---
+
+## 🔍 SEARCH FUNCTIONALITY
+
+In `tools-data.js`, define every tool as:
+```javascript
+const tools = [
+  {
+    id: "qr-code-generator",
+    name: "QR Code Generator",
+    description: "Generate QR codes for any URL or text instantly",
+    category: "QR & Barcode",
+    icon: "🔲",
+    url: "/tools/qr-code-generator.html",
+    tags: ["qr", "barcode", "generate", "scan"]
+  },
+  // ... all tools
+];
+```
+
+On homepage, implement live search:
+- Filter tools by name + tags as user types
+- Show "No results found" state
+- Highlight matching text in results
+
+---
+
+## 📱 RESPONSIVE BREAKPOINTS
+
+```css
+/* Mobile: 1 column */
+@media (max-width: 640px) { .tools-grid { grid-template-columns: 1fr; } }
+/* Tablet: 2 columns */
+@media (max-width: 1024px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
+/* Desktop: 4 columns */
+.tools-grid { grid-template-columns: repeat(4, 1fr); }
+```
+
+---
+
+## ⚡ PERFORMANCE REQUIREMENTS
+
+- All tools work offline after first load (use CDN libraries)
+- No page reloads — smooth navigation
+- Lazy load tool cards with IntersectionObserver
+- `<link rel="preload">` for critical CSS/fonts
+- Minified inline CSS for above-the-fold content
+
+---
+
+## 🏷️ SEO REQUIREMENTS
+
+Every page must have:
+```html
+<title>[Tool Name] - Free Online [Tool Name] | ToolZone</title>
+<meta name="description" content="Use our free [Tool Name] online. No signup required. Fast, secure, and works in your browser.">
+<meta name="keywords" content="[tool name], free online [tool name], [tool name] tool">
+<link rel="canonical" href="https://toolzone.example.com/tools/[tool-name].html">
+<!-- Open Graph -->
+<meta property="og:title" content="[Tool Name] - ToolZone">
+<meta property="og:description" content="...">
+<meta property="og:type" content="website">
+```
+
+---
+
+## 🚀 START BY BUILDING THESE FILES IN ORDER:
+
+1. `assets/style.css` — Complete design system
+2. `assets/tools-data.js` — All 100+ tools array
+3. `assets/main.js` — Navbar, search, utilities
+4. `index.html` — Homepage with grid + ads
+5. `tools/password-generator.html` — Full working tool
+6. `tools/qr-code-generator.html` — Full working tool
+7. `tools/barcode-generator.html` — Full working tool
+8. `tools/image-compressor.html` — Full working tool
+9. `tools/image-resizer.html` — Full working tool
+10. `tools/age-calculator.html` — Full working tool
+11. `tools/emi-calculator.html` — Full working tool
+12. `tools/unit-converter.html` — Full working tool
+13. Then build ALL remaining tools one by one
+
+**Every tool must be fully functional — no placeholders, no "coming soon".**
+
+---
+
+## ✅ FINAL CHECKLIST
+
+- [ ] All 100+ tools working client-side
+- [ ] AdSense slots on every page (3 placements)
+- [ ] Mobile responsive
+- [ ] Dark theme by default
+- [ ] Live search on homepage
+- [ ] Category filter
+- [ ] Related tools on each tool page
+- [ ] SEO meta tags on all pages
+- [ ] Fast loading (no heavy frameworks)
+- [ ] localStorage used for notes/todo tools
+- [ ] Copy-to-clipboard on all output fields
+- [ ] Toast notifications for copy/download actions
+
+---
+
+**Now start building. Begin with `assets/style.css` then `index.html`.**
