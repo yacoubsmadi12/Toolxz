@@ -14,6 +14,8 @@ import {
   Globe,
 } from "lucide-react";
 
+import developerPhoto from "@assets/developer_1782931387915.png";
+
 const SKILLS = [
   {
     icon: Network,
@@ -75,21 +77,16 @@ export default function About() {
 
             {/* Avatar */}
             <div className="relative inline-block mb-8">
-              <div
-                className="w-32 h-32 rounded-full flex items-center justify-center mx-auto text-4xl font-extrabold"
+              <img
+                src={developerPhoto}
+                alt="Eng. Yacoub Smadi"
+                className="w-36 h-36 rounded-full object-cover object-top mx-auto"
                 style={{
-                  background:
-                    "linear-gradient(135deg, rgba(0,245,255,0.15), rgba(191,0,255,0.15))",
-                  border: "2px solid",
-                  borderColor: "#00F5FF",
+                  border: "2px solid #00F5FF",
                   boxShadow:
-                    "0 0 30px rgba(0,245,255,0.4), 0 0 60px rgba(0,245,255,0.15)",
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  color: "#00F5FF",
+                    "0 0 30px rgba(0,245,255,0.45), 0 0 60px rgba(0,245,255,0.18)",
                 }}
-              >
-                YS
-              </div>
+              />
               {/* Pulse ring */}
               <div
                 className="absolute inset-0 rounded-full animate-ping"
