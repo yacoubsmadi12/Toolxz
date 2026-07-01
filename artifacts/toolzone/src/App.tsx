@@ -8,10 +8,11 @@ import Home from '@/pages/Home';
 // Category landing pages
 import CategoryPage from '@/pages/CategoryPage';
 
-// Legal pages
+// Legal / info pages
 import Privacy from '@/pages/legal/Privacy';
 import Terms from '@/pages/legal/Terms';
 import Contact from '@/pages/legal/Contact';
+import About from '@/pages/About';
 
 // Tool category pages
 import SecurityTools from '@/pages/tools/security';
@@ -40,7 +41,8 @@ function Router() {
       <Route path="/category/image-tools"><CategoryPage category="Image Tools" /></Route>
       <Route path="/category/security-password"><CategoryPage category="Security & Password" /></Route>
 
-      {/* Legal pages */}
+      {/* Legal / info pages */}
+      <Route path="/about" component={About} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
       <Route path="/contact" component={Contact} />

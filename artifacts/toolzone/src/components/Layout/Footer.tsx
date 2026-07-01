@@ -108,9 +108,14 @@ export function Footer() {
             style={{ borderTop: "1px solid rgba(0,245,255,0.06)" }}
           >
             <p>© {new Date().getFullYear()} ToolZone. All rights reserved.</p>
-            <p style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              Built with ☕ and 🚀 — No data leaves your browser.
-            </p>
+            <Link
+              href="/about"
+              className="transition-colors hover:text-white"
+              onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#00F5FF")}
+              onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "")}
+            >
+              About the Developer
+            </Link>
           </div>
         </div>
       </div>
