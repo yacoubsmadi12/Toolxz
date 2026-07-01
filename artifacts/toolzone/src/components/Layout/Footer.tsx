@@ -45,14 +45,14 @@ export function Footer() {
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 {[
-                  ["Web & Dev Tools", "Web+%26+Dev+Tools"],
-                  ["Text Tools", "Text+Tools"],
-                  ["Image Tools", "Image+Tools"],
-                  ["Security & Password", "Security+%26+Password"],
-                ].map(([label, cat]) => (
-                  <li key={cat}>
+                  ["Web & Dev Tools", "/category/web-dev-tools"],
+                  ["Text Tools",      "/category/text-tools"],
+                  ["Image Tools",     "/category/image-tools"],
+                  ["Security & Password", "/category/security-password"],
+                ].map(([label, href]) => (
+                  <li key={href}>
                     <Link
-                      href={`/?cat=${cat}`}
+                      href={href}
                       className="hover:text-white transition-colors"
                       style={{ display: "inline-block" }}
                       onMouseEnter={(e) =>
@@ -77,11 +77,16 @@ export function Footer() {
                 Legal
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                {["Privacy Policy", "Terms of Service", "Contact Us"].map((item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
+                {[
+                  ["Privacy Policy",   "/privacy"],
+                  ["Terms of Service", "/terms"],
+                  ["Contact Us",       "/contact"],
+                ].map(([label, href]) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
                       className="transition-colors hover:text-white"
+                      style={{ display: "inline-block" }}
                       onMouseEnter={(e) =>
                         ((e.target as HTMLElement).style.color = "#00F5FF")
                       }
@@ -89,8 +94,8 @@ export function Footer() {
                         ((e.target as HTMLElement).style.color = "")
                       }
                     >
-                      {item}
-                    </a>
+                      {label}
+                    </Link>
                   </li>
                 ))}
               </ul>

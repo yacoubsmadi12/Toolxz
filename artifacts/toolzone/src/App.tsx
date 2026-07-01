@@ -5,7 +5,15 @@ import { Route, Switch, Router as WouterRouter } from 'wouter';
 import NotFound from '@/pages/not-found';
 import Home from '@/pages/Home';
 
-// Category pages
+// Category landing pages
+import CategoryPage from '@/pages/CategoryPage';
+
+// Legal pages
+import Privacy from '@/pages/legal/Privacy';
+import Terms from '@/pages/legal/Terms';
+import Contact from '@/pages/legal/Contact';
+
+// Tool category pages
 import SecurityTools from '@/pages/tools/security';
 import QrBarcodeTools from '@/pages/tools/qr-barcode';
 import ImageTools from '@/pages/tools/image';
@@ -25,7 +33,18 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      
+
+      {/* Category landing pages */}
+      <Route path="/category/web-dev-tools"><CategoryPage category="Web & Dev Tools" /></Route>
+      <Route path="/category/text-tools"><CategoryPage category="Text Tools" /></Route>
+      <Route path="/category/image-tools"><CategoryPage category="Image Tools" /></Route>
+      <Route path="/category/security-password"><CategoryPage category="Security & Password" /></Route>
+
+      {/* Legal pages */}
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/terms" component={Terms} />
+      <Route path="/contact" component={Contact} />
+
       {/* Security Tools */}
       <Route path="/tools/password-generator"><SecurityTools active="password-generator" /></Route>
       <Route path="/tools/password-strength"><SecurityTools active="password-strength" /></Route>
