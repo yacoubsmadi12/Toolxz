@@ -22,19 +22,19 @@ export interface Tool {
   tags: string[];
 }
 
-export const CATEGORY_COLORS: Record<Category, { text: string, bg: string, border: string }> = {
-  "Security & Password": { text: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/20" },
-  "QR & Barcode": { text: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" },
-  "Image Tools": { text: "text-pink-400", bg: "bg-pink-500/10", border: "border-pink-500/20" },
-  "Text Tools": { text: "text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/20" },
-  "Number & Math": { text: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
-  "Unit Converters": { text: "text-teal-400", bg: "bg-teal-500/10", border: "border-teal-500/20" },
-  "Date & Time": { text: "text-yellow-400", bg: "bg-yellow-500/10", border: "border-yellow-500/20" },
-  "Web & Dev Tools": { text: "text-indigo-400", bg: "bg-indigo-500/10", border: "border-indigo-500/20" },
-  "Encode/Decode": { text: "text-cyan-400", bg: "bg-cyan-500/10", border: "border-cyan-500/20" },
-  "Finance Tools": { text: "text-emerald-400", bg: "bg-emerald-500/10", border: "border-emerald-500/20" },
-  "Fun & Random": { text: "text-rose-400", bg: "bg-rose-500/10", border: "border-rose-500/20" },
-  "Productivity": { text: "text-violet-400", bg: "bg-violet-500/10", border: "border-violet-500/20" }
+export const CATEGORY_COLORS: Record<Category, { color: string; glow: string }> = {
+  "Security & Password": { color: "#FF4757", glow: "rgba(255,71,87,0.25)" },
+  "QR & Barcode":        { color: "#BF00FF", glow: "rgba(191,0,255,0.25)" },
+  "Image Tools":         { color: "#FFD700", glow: "rgba(255,215,0,0.25)" },
+  "Text Tools":          { color: "#00AEFF", glow: "rgba(0,174,255,0.25)" },
+  "Number & Math":       { color: "#00FF88", glow: "rgba(0,255,136,0.25)" },
+  "Unit Converters":     { color: "#00D4AA", glow: "rgba(0,212,170,0.25)" },
+  "Date & Time":         { color: "#FF6B35", glow: "rgba(255,107,53,0.25)" },
+  "Web & Dev Tools":     { color: "#00F5FF", glow: "rgba(0,245,255,0.25)" },
+  "Encode/Decode":       { color: "#A78BFA", glow: "rgba(167,139,250,0.25)" },
+  "Finance Tools":       { color: "#00C896", glow: "rgba(0,200,150,0.25)" },
+  "Fun & Random":        { color: "#FF6584", glow: "rgba(255,101,132,0.25)" },
+  "Productivity":        { color: "#FFA500", glow: "rgba(255,165,0,0.25)" },
 };
 
 export const tools: Tool[] = [

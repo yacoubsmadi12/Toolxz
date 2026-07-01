@@ -1,0 +1,68 @@
+Redesign the entire ToolZone website with a "Cosmic Dev" theme:
+
+COLORS:
+- Background: Deep space black #030014
+- Primary glow: Electric cyan #00F5FF
+- Secondary glow: Nebula purple #BF00FF
+- Card surface: rgba(255,255,255,0.03) with glass effect
+- Text: Pure white #FFFFFF
+- Accent: Solar gold #FFD700 for badges/icons
+
+BACKGROUND EFFECT:
+- Animated starfield using canvas (500 moving dots, parallax on mouse move)
+- Subtle nebula gradient blobs (cyan + purple) floating slowly behind content
+- Aurora-like glow at the very top of the page
+
+CARDS:
+- Glassmorphism: backdrop-filter blur(20px), border: 1px solid rgba(0,245,255,0.15)
+- On hover: card lifts up (translateY -8px), cyan border glows (box-shadow: 0 0 30px #00F5FF44)
+- Category badges: neon pill shape with matching glow color per category
+- Icons: large emoji replaced with glowing SVG icons inside circle
+
+NAVBAR:
+- Frosted glass bar: rgba(3,0,20,0.8) + blur
+- Logo: "⚡ ToolZone" with cyan glow text-shadow
+- Search bar: dark with cyan focus ring glow
+- Animated underline on nav links
+
+HERO SECTION:
+- Big headline: white text, "100+ Free Online Tools" 
+- Subtitle with typewriter animation cycling through categories
+- Two CTA buttons: [Explore Tools] cyan glow + [Random Tool] purple glow
+- Floating 3D tool icons orbiting around hero (CSS animation)
+
+TYPOGRAPHY:
+- Display font: "Space Grotesk" (Google Fonts)
+- Body: "Inter"
+- All headings: slight letter-spacing 0.02em
+- Category labels: "JetBrains Mono" monospace, uppercase
+
+TOOL PAGE DESIGN:
+- Full-width dark panel for the tool UI
+- Input fields: dark bg, cyan bottom-border only (no full border)
+- Buttons: gradient from #00F5FF to #BF00FF
+- Output areas: terminal-style dark box with monospace font and cursor blink
+- Success/copy toast: slides in from bottom with glow
+
+CATEGORY COLORS (each category gets its own neon):
+- Security: 🔴 #FF4757
+- QR/Barcode: 🟣 #BF00FF  
+- Image: 🟡 #FFD700
+- Text: 🔵 #00AEFF
+- Numbers: 🟢 #00FF88
+- Web/Dev: 🩵 #00F5FF
+- Date/Time: 🟠 #FF6B35
+- Finance: 💚 #00C896
+
+MICRO-ANIMATIONS:
+- Page load: cards fade in with stagger (each 80ms delay)
+- Scroll: smooth reveal with translateY(20px) → 0
+- Button click: ripple effect
+- Copy action: button flashes gold for 500ms
+
+FOOTER:
+- Dark with starfield continuation
+- Glowing divider line at top
+- "Built with ☕ and 🚀" tagline
+
+Keep ALL existing functionality 100% intact. Only change visual design.
