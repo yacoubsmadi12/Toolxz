@@ -1,19 +1,22 @@
-# [Project name]
+# ToolZone
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A 100+ free online utility tools website — text, image, security, math, finance, QR codes, and more. Every tool runs fully client-side with no backend needed.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
+- `pnpm --filter @workspace/toolzone run dev` — run the ToolZone frontend (Vite dev server)
+- `pnpm --filter @workspace/api-server run dev` — run the API server (Express, port 8080)
+- `pnpm run typecheck:libs` — build lib declarations first (required before api-server typecheck)
+- `pnpm run typecheck` — full typecheck across all packages (run `typecheck:libs` first)
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- Required env: `DATABASE_URL` — Postgres connection string (for API server / DB features)
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
+- Frontend: React + Vite + Tailwind CSS + shadcn/ui + Wouter (routing)
 - API: Express 5
 - DB: PostgreSQL + Drizzle ORM
 - Validation: Zod (`zod/v4`), `drizzle-zod`
@@ -22,15 +25,23 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/toolzone/` — React + Vite frontend
+- `artifacts/toolzone/src/pages/tools/` — one file per tool category
+- `artifacts/toolzone/src/data/tools.ts` — tool registry (titles, slugs, categories)
+- `artifacts/api-server/` — Express 5 API server
+- `lib/db/` — Drizzle schema and DB client
+- `lib/api-zod/` — Zod schemas generated from OpenAPI spec
+- `lib/api-client-react/` — React Query hooks generated from OpenAPI spec
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- All tools are 100% client-side — no API calls required to use any tool
+- Wouter handles routing with a `BASE_URL` prefix so the app works under Replit's path-based proxy
+- Lib packages use TypeScript project references (`composite: true`) — run `pnpm run typecheck:libs` to emit declarations before typechecking artifacts
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+ToolZone is a browser-based utility hub: users can run 100+ free tools (text manipulation, image processing, QR codes, security/password tools, math, finance, unit converters, date/time, encode/decode, fun/random, productivity) without creating an account or installing anything.
 
 ## User preferences
 
@@ -38,7 +49,8 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Always run `pnpm run typecheck:libs` before `pnpm run typecheck` or `pnpm --filter @workspace/api-server run typecheck` — the API server has TypeScript project references to `lib/api-zod` and `lib/db` that must emit declarations first.
+- `node_modules` must be installed with `pnpm install` from the workspace root before any workflow can start.
 
 ## Pointers
 
