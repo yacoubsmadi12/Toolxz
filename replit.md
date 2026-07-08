@@ -51,6 +51,17 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 - Always run `pnpm run typecheck:libs` before `pnpm run typecheck` or `pnpm --filter @workspace/api-server run typecheck` — the API server has TypeScript project references to `lib/api-zod` and `lib/db` that must emit declarations first.
 - `node_modules` must be installed with `pnpm install` from the workspace root before any workflow can start.
+- The `@assets` alias in `vite.config.ts` points to `../../attached_assets` (workspace root). This is used by `About.tsx` for the developer photo. Works on both Replit and Vercel since the full repo is available during build.
+- Replit-specific Vite plugins (cartographer, dev-banner) are gated to `NODE_ENV !== 'production' && REPL_ID !== undefined` — they are automatically skipped on Vercel builds.
+
+## Vercel Deployment
+
+`vercel.json` is at the repo root and configures:
+- Build: `pnpm run typecheck:libs && pnpm --filter @workspace/toolzone run build`
+- Output: `artifacts/toolzone/dist/public`
+- SPA rewrite: all routes → `index.html`
+
+No environment variables required (all tools are 100% client-side).
 
 ## Pointers
 

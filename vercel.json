@@ -1,0 +1,8 @@
+{
+  "buildCommand": "pnpm run typecheck:libs && pnpm --filter @workspace/toolzone run build",
+  "outputDirectory": "artifacts/toolzone/dist/public",
+  "installCommand": "pnpm install",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
